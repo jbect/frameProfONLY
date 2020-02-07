@@ -1,0 +1,22 @@
+\usepackage{comment}
+
+\newif\ifPO
+
+\ifdefined\setPOtrue
+  \POtrue
+\else
+  \POfalse
+\fi
+
+\ifPO
+\newenvironment{frameProfONLY}[1]{%
+  \setbeamercolor{background canvas}{bg=orange!10}%
+  \begin{frame}[plain]{#1}%
+}{%
+  \end{frame}%
+  \setbeamercolor{background canvas}{bg=white}%
+  \addtocounter{framenumber}{-1}%
+}%
+\else
+  \excludecomment{frameProfONLY}
+\fi
